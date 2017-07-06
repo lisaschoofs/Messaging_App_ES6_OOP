@@ -14,6 +14,8 @@
     <script type="text/javascript" src="scripts/data/templates.js"/></script>
 
     <!-- CLASSES -->
+    <script type="text/javascript" src="scripts/classes/Message.js"></script>
+    <script type="text/javascript" src="scripts/classes/Dashboard.js"></script>
 
     <!-- ANGULAR -->
     <script type="text/javascript" src="vendors/angular/angular.min.js"></script>
@@ -23,8 +25,13 @@
 
   </head>
   <body>
-    <p>hello!</p>
-    <div ng-controller="DashboardController">
+    <div ng-controller="DashboardController" class="container">
+      <h1>Welcome to your Messaging Dashboard!</h1>
+      <div ng-repeat="template in templates">
+        <p>{{template.messageName}}</p>
+        <p>{{template.message}}</p>
+        <p>{{greeting}}</p>
+      </div>
     </div>
   </body>
 </html>

@@ -59,4 +59,4 @@ const GUESTS = [
       "endTimestamp": 1486788273
     }
   }
-];
+]

@@ -29,4 +29,4 @@ const COMPANIES = [
     "city": "Torquay",
     "timezone": "US/Eastern"
   }
-];
+]
