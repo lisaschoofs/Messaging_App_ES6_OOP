@@ -27,11 +27,22 @@
   <body>
     <div ng-controller="DashboardController" class="container">
       <h1>Welcome to your Messaging Dashboard!</h1>
-      <div ng-repeat="template in templates">
-        <p>{{template.messageName}}</p>
-        <p>{{template.message}}</p>
-        <p>{{greeting}}</p>
+
+      <div ng-repeat="guest in guests">
+        <p ng-click="selectGuest(guest)">{{guest.firstName}} {{guest.lastName}}</p>
       </div>
+      <br>
+      <div ng-repeat="company in companies">
+        <p ng-click="selectCompany(company)">{{company.company}}</p>
+      </div>
+      <br>
+      <div ng-repeat="template in templates">
+        <p ng-click=selectTemplate(template.message)>{{template.messageName}}</p>
+      </div>
+      <button type="button" class="btn" ng-click="sendMessage(chosenGuest, chosenCompany, chosenTemplate, greeting)">Send my message!</button>
+<!--
+          <p ng-click="sendMessage()">Send my message!</p> -->
     </div>
+
   </body>
 </html>

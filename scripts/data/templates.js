@@ -3,13 +3,12 @@
 
 /* Variables for later replacement are just included within the strings:
 greeting, firstName, lastName, roomNumber, company */
-
 const MESSAGE_TEMPLATES = [
   {
     "id": 1,
     "messageName": "Room is ready",
     "message": "greeting firstName, and welcome to company! " +
-               "roomNumber is now ready for you. Enjoy your stay, " +
+               "Room roomNumber is now ready for you. Enjoy your stay, " +
                "and let us know if you need anything."
   },
   {
@@ -26,20 +25,3 @@ const MESSAGE_TEMPLATES = [
                "company. We hope you'll join us again soon! "
   }
 ]
-
-//ORIGINAL ATTEMPTS/IDEAS FOR FORMMATING
-
-// {
-//   "id": 1,
-//   "messageName": "Room is ready",
-//   "message": greeting + " " + firstName + ", and welcome to " +
-//     company + "! " + roomNumber + " is now ready for you. Enjoy your stay, " +
-//     "and let us know if you need anything."
-// },
-// {
-//   "id": 1,
-//   "messageName": "Room is ready",
-//   "message": "{{greeting}} {{firstName}}, and welcome to {{company}}! " +
-//              "{{roomNumber}} is now ready for you. Enjoy your stay, " +
-//              "and let us know if you need anything."
-// },
