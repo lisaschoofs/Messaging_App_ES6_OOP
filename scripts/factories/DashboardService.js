@@ -12,7 +12,7 @@ myApp.factory('DashboardService', [function(){
   };
 
   /* function that takes variable selections from user, and sends message to
-  guest. Can be updated later with additional functionality to actually send!*/
+  guest. Can be updated later with additional functionality to actually send! */
   function sendMessage(guestObject, companyObject, message, greeting){
     let updatedMessage = updateMessage(guestObject, companyObject, message, greeting);
     console.log('logging message to send: ', updatedMessage);
@@ -20,7 +20,7 @@ myApp.factory('DashboardService', [function(){
   };
 
 
-/*      GREETING FUNCTIONALITY       */
+/*      GREETING FUNCTIONALITY     */
 
   let greeting = {};
 

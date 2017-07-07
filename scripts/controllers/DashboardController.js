@@ -14,8 +14,8 @@ myApp.controller('DashboardController', ['$scope', 'DashboardService', function(
   $scope.chosenCompany = {};
   $scope.chosenGuest = {};
 
-  /*functions to update selection variables - a bit verbose right now,
-  but allows user to see console logs with each click*/
+  /* functions to update selection variables - a bit verbose right now,
+  but allows user to see console logs with each click */
   $scope.selectGuest = function(guest) {
     $scope.chosenGuest = guest;
     console.log('selected Guest: ', $scope.chosenGuest);
