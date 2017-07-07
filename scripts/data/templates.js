@@ -1,6 +1,3 @@
-//I recognize I've drifted from JSON technically with the line breaks and '+'s.
-//For the sake of this project, I decided to prioritze readability.
-
 /* Variables for later replacement are just included within the strings:
 greeting, firstName, lastName, roomNumber, company */
 const MESSAGE_TEMPLATES = [
@@ -15,7 +12,7 @@ const MESSAGE_TEMPLATES = [
     "id": 2,
     "messageName": "Breakfast Reminder",
     "message": "greeting firstName! Breakfast is served downstairs " +
-               "from 6am to 10am. If you like WAFFLES, BACON, and OMLETTES..." +
+               "from 6am to 10am. If you like WAFFLES, BACON, and OMELETTES..." +
                " you better be there!"
   },
   {

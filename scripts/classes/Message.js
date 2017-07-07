@@ -1,7 +1,5 @@
 class Message{
-  constructor(){
-
-  }
+  constructor(){}
 
   /* function that takes in a selected guest object, company object, and message
   template string and updates the template accordingly. Returns updated message. */
@@ -12,6 +10,13 @@ class Message{
     let finalMessage = newestMessage.replace(/roomNumber/i,
                        guestObject.reservation.roomNumber);
     return finalMessage;
+  };
+
+  /* function that takes variable selections from user, and sends message to
+  guest. Can be updated later with additional functionality to actually send.*/
+  sendMessage(guestObject, companyObject, message, greeting){
+    let updatedMessage = updateMessage(guestObject, companyObject, message, greeting);
+    return updatedMessage;
   };
 
 }

@@ -1,35 +1,60 @@
 myApp.factory('DashboardService', [function(){
 
-//GRABS CURRENT TIME TO INFORM GREETING VARIABLE
+  /* function that takes in a selected guest object, company object, current greeting,
+  and template string and fills in the variables in template. Returns updated message. */
+  function updateMessage(guestObject, companyObject, message, greeting) {
+    let newMessage = message.replace(/greeting/i, greeting);
+    let newerMessage = newMessage.replace(/firstName/i, guestObject.firstName);
+    let newestMessage = newerMessage.replace(/company/i, companyObject.company);
+    let finalMessage = newestMessage.replace(/roomNumber/i,
+                       guestObject.reservation.roomNumber);
+    return finalMessage;
+  };
+
+  /* function that takes variable selections from user, and sends message to
+  guest. Can be updated later with additional functionality to actually send!*/
+  function sendMessage(guestObject, companyObject, message, greeting){
+    let updatedMessage = updateMessage(guestObject, companyObject, message, greeting);
+    console.log('logging message to send: ', updatedMessage);
+    return updatedMessage;
+  };
+
+
+/*      GREETING FUNCTIONALITY       */
+
+  let greeting = {};
+
+//Grabs the current time to inform greeting
   let date = new Date();
   let time = date.getHours();
-  console.log('logging time: ', time);
 
-//Variables to inform when each type of greeting should be used
+//Variables to inform when each type of greeting should be used - hour by military time
   let morningGreetingMax = 12;
   let afternoonGreetingMin = 12;
   let afternoonGreetingMax = 17;
   let eveningGreetingMin = 17;
-  let greeting;
 
-//function to set the greeting variable according to the current time of day.
+//Function to set the greeting variable according to the current time of day.
   function checkTime() {
     if(time < morningGreetingMax) {
-      greeting = 'Good Morning';
+      greeting.data = 'Good Morning';
     } else if (time > afternoonGreetingMin && time < afternoonGreetingMax) {
-      greeting = 'Good Afternoon';
+      greeting.data = 'Good Afternoon';
     } else if (time > eveningGreetingMin) {
-      greeting = 'Good Evening';
+      greeting.data = 'Good Evening';
+    } else {
+      greeting.data = 'Hello';
     }
+    console.log('logging current greeting: ', greeting.data);
     return greeting;
   };
 
-  console.log(checkTime());
-  console.log('greeting: ', greeting);
-//
+  checkTime();
 
   return {
-
+    updateMessage: updateMessage,
+    sendMessage: sendMessage,
+    greeting: greeting
   }
 
 }]);

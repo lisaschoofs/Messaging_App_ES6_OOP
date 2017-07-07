@@ -1,69 +1,34 @@
 myApp.controller('DashboardController', ['$scope', 'DashboardService', function($scope,DashboardService){
+  //functions/variables made available from DashboardService
+  $scope.updateMessage = DashboardService.updateMessage;
+  $scope.sendMessage = DashboardService.sendMessage;
+  $scope.greeting = DashboardService.greeting.data;
 
+  //Guest, company, and template data to display on DOM
   $scope.guests = GUESTS;
   $scope.companies = COMPANIES;
   $scope.templates = MESSAGE_TEMPLATES;
+
+  //variables to be updated with user selections
   $scope.chosenGuest = {};
   $scope.chosenCompany = {};
   $scope.chosenGuest = {};
 
+  /*functions to update selection variables - a bit verbose right now,
+  but allows user to see console logs with each click*/
   $scope.selectGuest = function(guest) {
     $scope.chosenGuest = guest;
-    console.log('selectedGuest', $scope.chosenGuest);
+    console.log('selected Guest: ', $scope.chosenGuest);
   };
 
   $scope.selectCompany = function(company) {
     $scope.chosenCompany = company;
-    console.log('selectCompany', $scope.chosenCompany);
+    console.log('selected Company: ', $scope.chosenCompany);
   };
 
   $scope.selectTemplate = function(template) {
     $scope.chosenTemplate = template;
-    console.log('selectedTemplate', $scope.chosenTemplate);
-  };
-
-
-  //GRABS CURRENT TIME TO INFORM GREETING VARIABLE
-    let date = new Date();
-    let time = date.getHours();
-    console.log('logging time: ', time);
-
-  //Variables to inform when each type of greeting should be used
-    let morningGreetingMax = 12;
-    let afternoonGreetingMin = 12;
-    let afternoonGreetingMax = 17;
-    let eveningGreetingMin = 17;
-    $scope.greeting;
-
-  //function to set the greeting variable according to the current time of day.
-    function checkTime() {
-      if(time < morningGreetingMax) {
-        $scope.greeting = 'Good Morning';
-      } else if (time > afternoonGreetingMin && time < afternoonGreetingMax) {
-        $scope.greeting = 'Good Afternoon';
-      } else if (time > eveningGreetingMin) {
-        $scope.greeting = 'Good Evening';
-      }
-      return $scope.greeting;
-    };
-
-    console.log(checkTime());
-
-
-  function updateMessage(guestObject, companyObject, message, greeting) {
-    let newMessage = message.replace(/greeting/i, greeting);
-    let newerMessage = newMessage.replace(/firstName/i, guestObject.firstName);
-    let newestMessage = newerMessage.replace(/company/i, companyObject.company);
-    let finalMessage = newestMessage.replace(/roomNumber/i,
-                       guestObject.reservation.roomNumber);
-    return finalMessage;
-  };
-
-  $scope.sendMessage = function(guestObject, companyObject, message, greeting){
-    var updatedMessage = updateMessage(guestObject, companyObject, message, greeting);
-    $scope.test = updatedMessage;
-    console.log('log updatedMessage', updatedMessage);
-    return updatedMessage;
+    console.log('selected Template: ', $scope.chosenTemplate);
   };
 
 }]);

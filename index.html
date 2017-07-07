@@ -24,25 +24,28 @@
     <script type="text/javascript" src="scripts/controllers/DashboardController.js"></script>
 
   </head>
-  <body>
-    <div ng-controller="DashboardController" class="container">
-      <h1>Welcome to your Messaging Dashboard!</h1>
-
+  <body ng-controller="DashboardController">
+    <div class="container">
+      <div class="jumbotron">
+        <h2>Welcome to your Messaging Dashboard!</h2>
+      </div>
+      <h3>Who would you like to send a message to? Just click!</h3>
       <div ng-repeat="guest in guests">
         <p ng-click="selectGuest(guest)">{{guest.firstName}} {{guest.lastName}}</p>
       </div>
       <br>
+      <h3>What company are you sending the message from? Just click!</h3>
       <div ng-repeat="company in companies">
         <p ng-click="selectCompany(company)">{{company.company}}</p>
       </div>
       <br>
+      <h3>Which message would you like to send? Just click!</h3>
       <div ng-repeat="template in templates">
         <p ng-click=selectTemplate(template.message)>{{template.messageName}}</p>
       </div>
+      <br>
+      <h3>Made all your selections? Hit send!</h3>
       <button type="button" class="btn" ng-click="sendMessage(chosenGuest, chosenCompany, chosenTemplate, greeting)">Send my message!</button>
-<!--
-          <p ng-click="sendMessage()">Send my message!</p> -->
     </div>
-
   </body>
 </html>
