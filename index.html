@@ -15,7 +15,7 @@
 
     <!-- CLASSES -->
     <script type="text/javascript" src="scripts/classes/Message.js"></script>
-    <script type="text/javascript" src="scripts/classes/Dashboard.js"></script>
+    <!-- <script type="text/javascript" src="scripts/classes/Dashboard.js"></script> -->
 
     <!-- ANGULAR -->
     <script type="text/javascript" src="vendors/angular/angular.min.js"></script>
@@ -29,7 +29,7 @@
       <div class="jumbotron">
         <h2>Welcome to your Messaging Dashboard!</h2>
       </div>
-      <h3>Who would you like to send a message to? Just click!</h3>
+      <!-- <h3>Who would you like to send a message to? Just click!</h3>
       <div ng-repeat="guest in guests">
         <p ng-click="selectGuest(guest)">{{guest.firstName}} {{guest.lastName}}</p>
       </div>
@@ -45,7 +45,39 @@
       </div>
       <br>
       <h3>Made all your selections? Hit send!</h3>
-      <button type="button" class="btn" ng-click="sendMessage(chosenGuest, chosenCompany, chosenTemplate, greeting)">Send my message!</button>
+      <button type="button" class="btn" ng-click="sendMessage(chosenGuest,
+                    chosenCompany, chosenTemplate, greeting)">Send my message!</button> -->
+
+      <form ng-submit="createMessage(message)">
+
+        <div class="form-group">
+          <label for="Guest">Guest</label>
+          <select class="form-control" ng-model="message.guest"
+                  ng-options="guest.firstName for guest in guests">
+          </select>
+        </div>
+
+        <div class="form-group">
+          <h3>What company are you sending the message from? Just click!</h3>
+          <label for="company">Company</label>
+          <select class="form-control" ng-model="message.company"
+                  ng-options="company.company for company in companies">
+          </select>
+        </div>
+
+        <div class="form-group">
+          <h3>What message would you like to send?</h3>
+          <label for="template">Company</label>
+          <select class="form-control" ng-model="message.template"
+                  ng-options="template.messageName for template in templates">
+          </select>
+        </div>
+      <!-- <div class="form-group">
+        <label for="description">Assignment: </label>
+        <textarea class="form-control" id="exampleTextarea" rows="3" ng-model="lesson.description"></textarea>
+      </div> -->
+      <input class="btn btn-info" type="submit" value="Send Message"/>
+      <!-- <input class="btn btn-info" type="submit" name="lesson.submit" value="Send Message"/> -->
     </div>
   </body>
 </html>
