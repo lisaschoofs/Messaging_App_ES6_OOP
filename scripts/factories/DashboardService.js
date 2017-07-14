@@ -1,8 +1,9 @@
 myApp.factory('DashboardService', [function(){
 
+  let message = {};
+
   /* function that takes in a selected guest object, company object, current greeting,
   and template string and fills in the variables in template. Returns updated message. */
-  //NEED TO UPDATE FOR NEW FORM
   function updateMessage(message, greeting) {
     let newMessage = message.template.message.replace(/greeting/i, greeting);
     let newerMessage = newMessage.replace(/firstName/i, message.guest.firstName);
@@ -14,16 +15,14 @@ myApp.factory('DashboardService', [function(){
 
   /* function that takes variable selections from user, and sends message to
   guest. Can be updated later with additional functionality to actually send! */
-  //NEED TO UPDATE FOR NEW FORM
   function sendMessage(message, greeting){
     let updatedMessage = updateMessage(message, greeting);
     console.log('logging message to send: ', updatedMessage);
-    return updatedMessage;
+    message.data = updatedMessage;
+    console.log('logging message', message);
   };
 
-
 /*      GREETING FUNCTIONALITY     */
-
   let greeting = {};
 
 //Grabs the current time to inform greeting
@@ -56,7 +55,8 @@ myApp.factory('DashboardService', [function(){
   return {
     updateMessage: updateMessage,
     sendMessage: sendMessage,
-    greeting: greeting
+    greeting: greeting,
+    message: message
   }
 
 }]);
