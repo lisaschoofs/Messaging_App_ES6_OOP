@@ -3,24 +3,23 @@ myApp.factory('DashboardService', [function(){
   /* function that takes in a selected guest object, company object, current greeting,
   and template string and fills in the variables in template. Returns updated message. */
   //NEED TO UPDATE FOR NEW FORM
-  function updateMessage(guestObject, companyObject, message, greeting) {
-    let newMessage = message.replace(/greeting/i, greeting);
-    let newerMessage = newMessage.replace(/firstName/i, guestObject.firstName);
-    let newestMessage = newerMessage.replace(/company/i, companyObject.company);
+  function updateMessage(message, greeting) {
+    let newMessage = message.template.message.replace(/greeting/i, greeting);
+    let newerMessage = newMessage.replace(/firstName/i, message.guest.firstName);
+    let newestMessage = newerMessage.replace(/company/i, message.company.company);
     let finalMessage = newestMessage.replace(/roomNumber/i,
-                       guestObject.reservation.roomNumber);
+                       message.guest.reservation.roomNumber);
     return finalMessage;
   };
 
   /* function that takes variable selections from user, and sends message to
   guest. Can be updated later with additional functionality to actually send! */
   //NEED TO UPDATE FOR NEW FORM
-  function sendMessage(guestObject, companyObject, message, greeting){
-    let updatedMessage = updateMessage(guestObject, companyObject, message, greeting);
+  function sendMessage(message, greeting){
+    let updatedMessage = updateMessage(message, greeting);
     console.log('logging message to send: ', updatedMessage);
     return updatedMessage;
   };
-
 
 
 /*      GREETING FUNCTIONALITY     */

@@ -11,14 +11,14 @@ myApp.controller('DashboardController', ['$scope', 'DashboardService', function(
 
   //variables to be updated with user selections
   $scope.message = {};
-  $scope.chosenGuest = {};
-  $scope.chosenCompany = {};
-  $scope.chosenGuest = {};
 
 //CURRENTLY CALLS ON SUBMIT OF FORM
   $scope.createMessage = function(message) {
     $scope.message = message;
     console.log('new message ', message);
+    $scope.sendMessage(message, $scope.greeting);
+    alert('message has been sent!');
+
   };
 
 }]);
