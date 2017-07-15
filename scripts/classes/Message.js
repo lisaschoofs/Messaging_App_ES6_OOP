@@ -1,4 +1,5 @@
 class Message{
+  //NEED TO BUILD OUT CONSTRUCTOR
   constructor(){}
 
   /* function that takes in a selected guest object, company object, and message

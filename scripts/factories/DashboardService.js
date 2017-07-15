@@ -1,4 +1,5 @@
 myApp.factory('DashboardService', [function(){
+  let messageInstance = new Message();
 
   let message = {};
 
@@ -56,7 +57,8 @@ myApp.factory('DashboardService', [function(){
     updateMessage: updateMessage,
     sendMessage: sendMessage,
     greeting: greeting,
-    message: message
+    message: message,
+    messageInstance: messageInstance
   }
 
 }]);
