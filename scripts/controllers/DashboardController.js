@@ -20,10 +20,8 @@ myApp.controller('DashboardController', ['$scope', 'DashboardService', function(
   //On submit of form...
   $scope.createMessage = function(message) {
     $scope.message = message;
-    console.log('new message ', message);
     $scope.sendMessage(message, $scope.greeting);
     $scope.sent = true;
-    console.log('sent?', $scope.sent);
   };
 
 }]);
